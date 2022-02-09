@@ -7,7 +7,9 @@ func (s *Stack) Equal() error {
 
 	a, b := s.Pop2NoTest()
 
-	c := boolToInt(a == b)
+	c := boolToInt(
+		isEqual(a, b),
+	)
 	s.Push(c)
 	return nil
 }
@@ -58,6 +60,7 @@ func (s *Stack) GreaterEq() error {
 	c := boolToInt(a >= b)
 	s.Push(c)
 	return nil
+
 }
 
 func (s *Stack) Diferent() error {
@@ -67,7 +70,9 @@ func (s *Stack) Diferent() error {
 
 	a, b := s.Pop2NoTest()
 
-	c := boolToInt(a != b)
+	c := boolToInt(
+		!isEqual(a, b),
+	)
 	s.Push(c)
 	return nil
 }

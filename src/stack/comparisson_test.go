@@ -208,3 +208,26 @@ func TestGreaterEq(t *testing.T) {
 		assert.Equal(t, err, ErrNotEnoughtValuesOnTheStack)
 	})
 }
+
+func TestIsEqual(t *testing.T) {
+	t.Run("Equal", func(t *testing.T) {
+		got := isEqual(
+			float64(0.1)+float64(0.2),
+			float64(0.3),
+		)
+
+		want := true
+
+		assert.Equal(t, got, want)
+	})
+	t.Run("Diff", func(t *testing.T) {
+		got := isEqual(
+			float64(0.2)+float64(0.2),
+			float64(0.3),
+		)
+
+		want := false
+
+		assert.Equal(t, got, want)
+	})
+}

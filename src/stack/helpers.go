@@ -1,10 +1,8 @@
 package stack
 
 import (
-	"bufio"
 	"errors"
-	"os"
-	"strings"
+	"math"
 )
 
 var ErrNotEnoughtValuesOnTheStack error = errors.New("the operation needed more arguments than the ones available on the stack")
@@ -18,9 +16,6 @@ func boolToInt(condition bool) float64 {
 	return 0
 }
 
-func input() string {
-	reader := bufio.NewReader(os.Stdin)
-	text, _ := reader.ReadString('\n')
-	text = strings.TrimSuffix(text, "\n")
-	return text
+func isEqual(a, b float64) bool {
+	return math.Abs(a-b) < 1e-15
 }
