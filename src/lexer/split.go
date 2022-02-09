@@ -4,34 +4,51 @@ package lexer
 func (le *Lexer) Split() {
 	buffer := ""
 
+	isComment := 0
 	for _, i := range le.input {
-		switch i {
-		case ' ', '\n', '\t':
-			// Delimiters that DO NOT matter
+		if isComment != 0 {
 
-			if buffer != "" {
-				// append non buffers
-				le.chrs = append(le.chrs, buffer)
-				buffer = ""
+			switch i {
+			case '(':
+				isComment += 1
+			case ')':
+				isComment -= 1
 			}
 
-		case '{', '}':
-			// Delimiters that DO matter
+		} else {
 
-			if buffer != "" {
-				// append non buffers
-				le.chrs = append(le.chrs, buffer)
-				buffer = ""
+			switch i {
+			case '(':
+				isComment += 1
+			case ' ', '\n', '\t':
+				// Delimiters that DO NOT matter
+
+				if buffer != "" {
+					// append non buffers
+					le.chrs = append(le.chrs, buffer)
+					buffer = ""
+				}
+
+			case '{', '}':
+				// Delimiters that DO matter
+
+				if buffer != "" {
+					// append non buffers
+					le.chrs = append(le.chrs, buffer)
+					buffer = ""
+				}
+
+				// append { or }
+				le.chrs = append(le.chrs, string(i))
+
+			default:
+				// Any other rune
+				buffer += string(i)
+
 			}
-
-			// append { or }
-			le.chrs = append(le.chrs, string(i))
-
-		default:
-			// Any other rune
-			buffer += string(i)
 
 		}
+
 	}
 
 	// Append the final word if it exists

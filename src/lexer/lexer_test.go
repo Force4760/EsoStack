@@ -15,8 +15,9 @@ func TestLexer(t *testing.T) {
 		got.Tokenize()
 
 		want := &Lexer{
-			input: input,
-			chrs:  []string{"2", "-3", "2.3", "-2.3", "true", "false", "e", "pi", "phi", "π", "ϕ"},
+			input:  input,
+			length: len(input),
+			chrs:   []string{"2", "-3", "2.3", "-2.3", "true", "false", "e", "pi", "phi", "π", "ϕ"},
 			Tokens: []tokens.Token{
 				{Type: tokens.INT, Literal: "2"},
 				{Type: tokens.INT, Literal: "-3"},
@@ -41,8 +42,9 @@ func TestLexer(t *testing.T) {
 		got.Tokenize()
 
 		want := &Lexer{
-			input: input,
-			chrs:  []string{"+", "-", "*", "/", "%", "^", ">", "<", ">=", "<=", "==", "!=", "&&", "||", "XX", "!!", "and", "or", "xor", "not"},
+			input:  input,
+			length: len(input),
+			chrs:   []string{"+", "-", "*", "/", "%", "^", ">", "<", ">=", "<=", "==", "!=", "&&", "||", "XX", "!!", "and", "or", "xor", "not"},
 			Tokens: []tokens.Token{
 				{Type: tokens.ADD, Literal: "+"},
 				{Type: tokens.SUB, Literal: "-"},
@@ -76,8 +78,9 @@ func TestLexer(t *testing.T) {
 		got.Tokenize()
 
 		want := &Lexer{
-			input: input,
-			chrs:  []string{"√x", "sqrt", "x!", "fact", "exp", "log", "sin", "cos", "tan", "↑", "max", "↓", "min", "±", "simetric", "⌊x⌋", "floor", "⌈x⌉", "ceil", "|x|", "abs"},
+			input:  input,
+			length: len(input),
+			chrs:   []string{"√x", "sqrt", "x!", "fact", "exp", "log", "sin", "cos", "tan", "↑", "max", "↓", "min", "±", "simetric", "⌊x⌋", "floor", "⌈x⌉", "ceil", "|x|", "abs"},
 			Tokens: []tokens.Token{
 				{Type: tokens.SQRT, Literal: "√x"},
 				{Type: tokens.SQRT, Literal: "sqrt"},
@@ -112,8 +115,9 @@ func TestLexer(t *testing.T) {
 		got.Tokenize()
 
 		want := &Lexer{
-			input: input,
-			chrs:  []string{"swap", "drop", "dup", "dup2", "rot", "over", "if", "for", "{", "}"},
+			input:  input,
+			length: len(input),
+			chrs:   []string{"swap", "drop", "dup", "dup2", "rot", "over", "if", "for", "{", "}"},
 			Tokens: []tokens.Token{
 				{Type: tokens.SWAP, Literal: "swap"},
 				{Type: tokens.DROP, Literal: "drop"},
@@ -130,6 +134,7 @@ func TestLexer(t *testing.T) {
 
 		assert.Equal(t, got, want)
 	})
+
 	t.Run("Braces Error", func(t *testing.T) {
 		input := "{ test"
 		_, got := New(input)
@@ -154,6 +159,32 @@ func TestLexer(t *testing.T) {
 
 		assert.Equal(t, got, want)
 	})
+
+	t.Run("Parens Error 1", func(t *testing.T) {
+		input := "( fa a (fas) as ag )"
+		_, got := New(input)
+
+		var want error = nil
+
+		assert.Equal(t, got, want)
+	})
+	t.Run("Parens Error 2", func(t *testing.T) {
+		input := "( fas) as ag )"
+		_, got := New(input)
+
+		want := ParenError("( )")
+
+		assert.Equal(t, got, want)
+	})
+	t.Run("Parens Error 3", func(t *testing.T) {
+		input := "( (fas) (as ag )"
+		_, got := New(input)
+
+		want := ParenError("( )")
+
+		assert.Equal(t, got, want)
+	})
+
 	t.Run("Invalid Error 1", func(t *testing.T) {
 		input := "{ $ }"
 		lex, _ := New(input)

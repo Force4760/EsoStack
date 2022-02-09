@@ -34,3 +34,11 @@ func isValidBrace(input string) bool {
 
 	return numL == numR
 }
+
+// Predicate checking if the () are balanced
+func isValidParen(input string) bool {
+	numL := strings.Count(input, "(")
+	numR := strings.Count(input, ")")
+
+	return numL == numR
+}

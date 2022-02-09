@@ -8,6 +8,7 @@ import (
 // Responsible for Tokenizing the provided src code
 type Lexer struct {
 	input  string
+	length int
 	chrs   []string
 	Tokens []tok.Token
 }
@@ -17,9 +18,14 @@ type Lexer struct {
 func New(input string) (*Lexer, error) {
 	if !isValidBrace(input) {
 		return nil, ParenError("{ }")
+	} else if !isValidParen(input) {
+		return nil, ParenError("( )")
 	}
 
-	le := &Lexer{input: input}
+	le := &Lexer{
+		input:  input,
+		length: len(input),
+	}
 
 	return le, nil
 }
