@@ -4,6 +4,7 @@ import (
 	"math"
 )
 
+// |a|
 func (s *Stack) Abs() error {
 	if s.length < 1 {
 		return ErrNotEnoughtValuesOnTheStack
@@ -13,6 +14,7 @@ func (s *Stack) Abs() error {
 	return nil
 }
 
+// √x
 func (s *Stack) Sqrt() error {
 	if s.length < 1 {
 		return ErrNotEnoughtValuesOnTheStack
@@ -28,6 +30,7 @@ func (s *Stack) Sqrt() error {
 	return nil
 }
 
+// x!
 func (s *Stack) Fact() error {
 	if s.length < 1 {
 		return ErrNotEnoughtValuesOnTheStack
@@ -50,6 +53,7 @@ func factorial(num int) int {
 	return result
 }
 
+// ⌊x⌋
 func (s *Stack) Floor() error {
 	if s.length < 1 {
 		return ErrNotEnoughtValuesOnTheStack
@@ -61,6 +65,7 @@ func (s *Stack) Floor() error {
 	return nil
 }
 
+// ⌈x⌉
 func (s *Stack) Ceil() error {
 	if s.length < 1 {
 		return ErrNotEnoughtValuesOnTheStack
@@ -72,6 +77,7 @@ func (s *Stack) Ceil() error {
 	return nil
 }
 
+// eˣ
 func (s *Stack) Exp() error {
 	if s.length < 1 {
 		return ErrNotEnoughtValuesOnTheStack
@@ -83,6 +89,7 @@ func (s *Stack) Exp() error {
 	return nil
 }
 
+// log(x)
 func (s *Stack) Log() error {
 	if s.length < 1 {
 		return ErrNotEnoughtValuesOnTheStack
@@ -98,6 +105,7 @@ func (s *Stack) Log() error {
 	return nil
 }
 
+// max(a, b)
 func (s *Stack) Max() error {
 	if s.length < 2 {
 		return ErrNotEnoughtValuesOnTheStack
@@ -109,6 +117,7 @@ func (s *Stack) Max() error {
 	return nil
 }
 
+// min(a, b)
 func (s *Stack) Min() error {
 	if s.length < 2 {
 		return ErrNotEnoughtValuesOnTheStack
@@ -120,6 +129,7 @@ func (s *Stack) Min() error {
 	return nil
 }
 
+// -a
 func (s *Stack) Simetric() error {
 	if s.length < 1 {
 		return ErrNotEnoughtValuesOnTheStack
@@ -133,6 +143,7 @@ func (s *Stack) Simetric() error {
 
 // trignometric functions
 
+// tan(x)
 func (s *Stack) Tan() error {
 	if s.length < 1 {
 		return ErrNotEnoughtValuesOnTheStack
@@ -144,6 +155,7 @@ func (s *Stack) Tan() error {
 	return nil
 }
 
+// sin(x)
 func (s *Stack) Sin() error {
 	if s.length < 1 {
 		return ErrNotEnoughtValuesOnTheStack
@@ -155,6 +167,7 @@ func (s *Stack) Sin() error {
 	return nil
 }
 
+// cos(x)
 func (s *Stack) Cos() error {
 	if s.length < 1 {
 		return ErrNotEnoughtValuesOnTheStack

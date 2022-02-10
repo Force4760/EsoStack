@@ -1,5 +1,6 @@
 package stack
 
+// a == b
 func (s *Stack) Equal() error {
 	if s.length < 2 {
 		return ErrNotEnoughtValuesOnTheStack
@@ -14,6 +15,7 @@ func (s *Stack) Equal() error {
 	return nil
 }
 
+// a < b
 func (s *Stack) Lesser() error {
 	if s.length < 2 {
 		return ErrNotEnoughtValuesOnTheStack
@@ -26,6 +28,7 @@ func (s *Stack) Lesser() error {
 	return nil
 }
 
+// a > b
 func (s *Stack) Greater() error {
 	if s.length < 2 {
 		return ErrNotEnoughtValuesOnTheStack
@@ -38,6 +41,7 @@ func (s *Stack) Greater() error {
 	return nil
 }
 
+// a <= b
 func (s *Stack) LesserEq() error {
 	if s.length < 2 {
 		return ErrNotEnoughtValuesOnTheStack
@@ -50,6 +54,7 @@ func (s *Stack) LesserEq() error {
 	return nil
 }
 
+// a >= b
 func (s *Stack) GreaterEq() error {
 	if s.length < 2 {
 		return ErrNotEnoughtValuesOnTheStack
@@ -63,6 +68,7 @@ func (s *Stack) GreaterEq() error {
 
 }
 
+// a != b
 func (s *Stack) Diferent() error {
 	if s.length < 2 {
 		return ErrNotEnoughtValuesOnTheStack

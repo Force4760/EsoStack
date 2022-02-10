@@ -1,5 +1,7 @@
 package stack
 
+// Swap the top 2 elements of the stack
+// a/b/c -> b/a/c
 func (s *Stack) Swap() error {
 	if s.length < 2 {
 		return ErrNotEnoughtValuesOnTheStack
@@ -10,6 +12,8 @@ func (s *Stack) Swap() error {
 	return nil
 }
 
+// Drop the top element of the stack
+// a/b/c -> b/c
 func (s *Stack) Drop() error {
 	if s.length < 1 {
 		return ErrNotEnoughtValuesOnTheStack
@@ -19,6 +23,8 @@ func (s *Stack) Drop() error {
 	return nil
 }
 
+// Duplicate the top element of the stack
+// a/b/c -> a/a/b/c
 func (s *Stack) Dup() error {
 	if s.length < 1 {
 		return ErrNotEnoughtValuesOnTheStack
@@ -29,6 +35,8 @@ func (s *Stack) Dup() error {
 	return nil
 }
 
+// Duplicate the top 2 elements of the stack
+// a/b/c -> a/b/a/b/c
 func (s *Stack) Dup2() error {
 	if s.length < 2 {
 		return ErrNotEnoughtValuesOnTheStack
@@ -41,6 +49,8 @@ func (s *Stack) Dup2() error {
 	return nil
 }
 
+// Copy The 2nd element to the top
+// a/b/c -> b/a/b/c
 func (s *Stack) Over() error {
 	if s.length < 2 {
 		return ErrNotEnoughtValuesOnTheStack
@@ -52,6 +62,8 @@ func (s *Stack) Over() error {
 	return nil
 }
 
+// Rotate the top 3 elements of the stack
+// a/b/c -> c/a/b
 func (s *Stack) Rot() error {
 	if s.length < 3 {
 		return ErrNotEnoughtValuesOnTheStack

@@ -2,6 +2,7 @@ package stack
 
 import "math"
 
+// a + b
 func (s *Stack) Plus() error {
 	if s.length < 2 {
 		return ErrNotEnoughtValuesOnTheStack
@@ -11,6 +12,7 @@ func (s *Stack) Plus() error {
 	return nil
 }
 
+// a - b
 func (s *Stack) Minus() error {
 	if s.length < 2 {
 		return ErrNotEnoughtValuesOnTheStack
@@ -20,6 +22,7 @@ func (s *Stack) Minus() error {
 	return nil
 }
 
+// a * b
 func (s *Stack) Times() error {
 	if s.length < 2 {
 		return ErrNotEnoughtValuesOnTheStack
@@ -29,6 +32,7 @@ func (s *Stack) Times() error {
 	return nil
 }
 
+// a / b
 func (s *Stack) Div() error {
 	if s.length < 2 {
 		return ErrNotEnoughtValuesOnTheStack
@@ -41,6 +45,7 @@ func (s *Stack) Div() error {
 	return nil
 }
 
+// a % b
 func (s *Stack) Modulus() error {
 	if s.length < 2 {
 		return ErrNotEnoughtValuesOnTheStack
@@ -54,6 +59,7 @@ func (s *Stack) Modulus() error {
 	return nil
 }
 
+// a^b
 func (s *Stack) Power() error {
 	if s.length < 2 {
 		return ErrNotEnoughtValuesOnTheStack
