@@ -6,6 +6,7 @@ type TokenType int
 
 const (
 	INVALID TokenType = iota + 1
+	EOF
 
 	// Math Ops
 	ADD
