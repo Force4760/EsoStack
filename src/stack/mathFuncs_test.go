@@ -257,7 +257,6 @@ func TestSimetric(t *testing.T) {
 
 		assert.Equal(t, got, want)
 	})
-
 	t.Run("Simetric with negative", func(t *testing.T) {
 		got := NewStack([]float64{1, 2, -10})
 

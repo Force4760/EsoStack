@@ -1,6 +1,8 @@
 package stack
 
 // a == b
+//
+// Needs 2 elements
 func (s *Stack) Equal() error {
 	if s.length < 2 {
 		return ErrNotEnoughtValuesOnTheStack
@@ -12,10 +14,13 @@ func (s *Stack) Equal() error {
 		isEqual(a, b),
 	)
 	s.Push(c)
+
 	return nil
 }
 
 // a < b
+//
+// Needs 2 elements
 func (s *Stack) Lesser() error {
 	if s.length < 2 {
 		return ErrNotEnoughtValuesOnTheStack
@@ -25,10 +30,13 @@ func (s *Stack) Lesser() error {
 
 	c := boolToInt(a < b)
 	s.Push(c)
+
 	return nil
 }
 
 // a > b
+//
+// Needs 2 elements
 func (s *Stack) Greater() error {
 	if s.length < 2 {
 		return ErrNotEnoughtValuesOnTheStack
@@ -38,10 +46,13 @@ func (s *Stack) Greater() error {
 
 	c := boolToInt(a > b)
 	s.Push(c)
+
 	return nil
 }
 
 // a <= b
+//
+// Needs 2 elements
 func (s *Stack) LesserEq() error {
 	if s.length < 2 {
 		return ErrNotEnoughtValuesOnTheStack
@@ -51,10 +62,13 @@ func (s *Stack) LesserEq() error {
 
 	c := boolToInt(a <= b)
 	s.Push(c)
+
 	return nil
 }
 
 // a >= b
+//
+// Needs 2 elements
 func (s *Stack) GreaterEq() error {
 	if s.length < 2 {
 		return ErrNotEnoughtValuesOnTheStack
@@ -64,11 +78,13 @@ func (s *Stack) GreaterEq() error {
 
 	c := boolToInt(a >= b)
 	s.Push(c)
-	return nil
 
+	return nil
 }
 
 // a != b
+//
+// Needs 2 elements
 func (s *Stack) Diferent() error {
 	if s.length < 2 {
 		return ErrNotEnoughtValuesOnTheStack
@@ -80,5 +96,6 @@ func (s *Stack) Diferent() error {
 		!isEqual(a, b),
 	)
 	s.Push(c)
+
 	return nil
 }

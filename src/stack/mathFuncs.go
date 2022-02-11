@@ -5,6 +5,8 @@ import (
 )
 
 // |a|
+//
+// Needs 1 element
 func (s *Stack) Abs() error {
 	if s.length < 1 {
 		return ErrNotEnoughtValuesOnTheStack
@@ -15,6 +17,8 @@ func (s *Stack) Abs() error {
 }
 
 // √x
+//
+// Needs 1 element
 func (s *Stack) Sqrt() error {
 	if s.length < 1 {
 		return ErrNotEnoughtValuesOnTheStack
@@ -31,6 +35,8 @@ func (s *Stack) Sqrt() error {
 }
 
 // x!
+//
+// Needs 1 element
 func (s *Stack) Fact() error {
 	if s.length < 1 {
 		return ErrNotEnoughtValuesOnTheStack
@@ -42,18 +48,9 @@ func (s *Stack) Fact() error {
 	return nil
 }
 
-func factorial(num int) int {
-	var result int = 1
-	if num < 0 {
-	} else {
-		for i := 1; i <= num; i++ {
-			result *= i
-		}
-	}
-	return result
-}
-
-// ⌊x⌋
+// ⌊x⌋ -> the integer "bellow"
+//
+// Needs 1 element
 func (s *Stack) Floor() error {
 	if s.length < 1 {
 		return ErrNotEnoughtValuesOnTheStack
@@ -65,7 +62,9 @@ func (s *Stack) Floor() error {
 	return nil
 }
 
-// ⌈x⌉
+// ⌈x⌉ -> the integer "above"
+//
+// Needs 1 element
 func (s *Stack) Ceil() error {
 	if s.length < 1 {
 		return ErrNotEnoughtValuesOnTheStack
@@ -78,6 +77,8 @@ func (s *Stack) Ceil() error {
 }
 
 // eˣ
+//
+// Needs 1 element
 func (s *Stack) Exp() error {
 	if s.length < 1 {
 		return ErrNotEnoughtValuesOnTheStack
@@ -90,6 +91,8 @@ func (s *Stack) Exp() error {
 }
 
 // log(x)
+//
+// Needs 1 element
 func (s *Stack) Log() error {
 	if s.length < 1 {
 		return ErrNotEnoughtValuesOnTheStack
@@ -106,6 +109,8 @@ func (s *Stack) Log() error {
 }
 
 // max(a, b)
+//
+// Needs 2 element
 func (s *Stack) Max() error {
 	if s.length < 2 {
 		return ErrNotEnoughtValuesOnTheStack
@@ -118,6 +123,8 @@ func (s *Stack) Max() error {
 }
 
 // min(a, b)
+//
+// Needs 2 element
 func (s *Stack) Min() error {
 	if s.length < 2 {
 		return ErrNotEnoughtValuesOnTheStack
@@ -130,6 +137,8 @@ func (s *Stack) Min() error {
 }
 
 // -a
+//
+// Needs 1 element
 func (s *Stack) Simetric() error {
 	if s.length < 1 {
 		return ErrNotEnoughtValuesOnTheStack
@@ -141,9 +150,9 @@ func (s *Stack) Simetric() error {
 	return nil
 }
 
-// trignometric functions
-
 // tan(x)
+//
+// Needs 1 element
 func (s *Stack) Tan() error {
 	if s.length < 1 {
 		return ErrNotEnoughtValuesOnTheStack
@@ -156,6 +165,8 @@ func (s *Stack) Tan() error {
 }
 
 // sin(x)
+//
+// Needs 1 element
 func (s *Stack) Sin() error {
 	if s.length < 1 {
 		return ErrNotEnoughtValuesOnTheStack
@@ -168,6 +179,8 @@ func (s *Stack) Sin() error {
 }
 
 // cos(x)
+//
+// Needs 1 element
 func (s *Stack) Cos() error {
 	if s.length < 1 {
 		return ErrNotEnoughtValuesOnTheStack

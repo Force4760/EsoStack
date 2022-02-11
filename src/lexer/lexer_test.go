@@ -134,7 +134,9 @@ func TestLexer(t *testing.T) {
 
 		assert.Equal(t, got, want)
 	})
+}
 
+func TestLexerBraces(t *testing.T) {
 	t.Run("Braces Error", func(t *testing.T) {
 		input := "{ test"
 		_, got := New(input)
@@ -159,7 +161,9 @@ func TestLexer(t *testing.T) {
 
 		assert.Equal(t, got, want)
 	})
+}
 
+func TestLexerParens(t *testing.T) {
 	t.Run("Parens Error 1", func(t *testing.T) {
 		input := "( fa a (fas) as ag )"
 		_, got := New(input)
@@ -184,7 +188,9 @@ func TestLexer(t *testing.T) {
 
 		assert.Equal(t, got, want)
 	})
+}
 
+func TestLexerInvalid(t *testing.T) {
 	t.Run("Invalid Error 1", func(t *testing.T) {
 		input := "{ $ }"
 		lex, _ := New(input)
