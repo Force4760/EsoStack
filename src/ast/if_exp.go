@@ -2,6 +2,8 @@ package ast
 
 import tok "github.com/Force4760/pipes/src/tokens"
 
+// AST for an If expression
+// if { --- then --- } { --- else ---}
 type IfExpression struct {
 	Token tok.Token // the token.IF token
 	Then  []Expression
@@ -12,4 +14,7 @@ type IfExpression struct {
 func (i *IfExpression) expressionNode() {}
 
 // Implementing the Node interface
-func (i *IfExpression) TokenLiteral() string { return i.Token.Literal }
+func (i *IfExpression) Node() string {
+	//      If{---------then---------}{---------else---------}
+	return "If{ " + toStr(i.Then) + "}{ " + toStr(i.Else) + "}"
+}
