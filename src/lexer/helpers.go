@@ -14,7 +14,7 @@ const (
 // Predicate checking if a string could represent an integer
 // Can contain -0123456789
 func isInt(ch string) bool {
-	_, err := strconv.ParseInt(ch, 10, 8)
+	_, err := strconv.ParseInt(ch, 10, 32)
 
 	return err == nil
 }

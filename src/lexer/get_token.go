@@ -107,8 +107,10 @@ func (le *Lexer) GetToken(index int) (tok.Token, error) {
 
 	default:
 		if isInt(ch) {
+			// INT
 			token = tok.INT
 		} else if isFloat(ch) {
+			// FLOAT
 			token = tok.FLOAT
 		} else {
 			// Invalid token, returns an error

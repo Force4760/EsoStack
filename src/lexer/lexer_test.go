@@ -189,7 +189,6 @@ func TestLexerParens(t *testing.T) {
 		assert.Equal(t, got, want)
 	})
 }
-
 func TestLexerInvalid(t *testing.T) {
 	t.Run("Invalid Error 1", func(t *testing.T) {
 		input := "{ $ }"
@@ -206,6 +205,87 @@ func TestLexerInvalid(t *testing.T) {
 
 		got := lex.Tokenize()
 		want := InvalidError("dgff")
+
+		assert.Equal(t, got, want)
+	})
+}
+
+func TestIsInt(t *testing.T) {
+	t.Run("Is Int positive", func(t *testing.T) {
+		got := isInt("123456")
+		want := true
+
+		assert.Equal(t, got, want)
+	})
+	t.Run("Is Int negative", func(t *testing.T) {
+		got := isInt("-1233456")
+		want := true
+
+		assert.Equal(t, got, want)
+	})
+	t.Run("Is Int float -> False", func(t *testing.T) {
+		got := isInt("-12.3456")
+		want := false
+
+		assert.Equal(t, got, want)
+	})
+	t.Run("Is Int nonInt -> False", func(t *testing.T) {
+		got := isInt("saffasfa")
+		want := false
+
+		assert.Equal(t, got, want)
+	})
+}
+
+func TestIsFloat(t *testing.T) {
+	t.Run("Is Float positive", func(t *testing.T) {
+		got := isFloat("12.3456")
+		want := true
+
+		assert.Equal(t, got, want)
+	})
+	t.Run("Is Float negative", func(t *testing.T) {
+		got := isFloat("-12.33456")
+		want := true
+
+		assert.Equal(t, got, want)
+	})
+	t.Run("Is Float int -> True", func(t *testing.T) {
+		got := isFloat("-123456")
+		want := true
+
+		assert.Equal(t, got, want)
+	})
+	t.Run("Is Float nonInt -> False", func(t *testing.T) {
+		got := isFloat("saffasfa")
+		want := false
+
+		assert.Equal(t, got, want)
+	})
+}
+
+func TestIsValid(t *testing.T) {
+	t.Run("valid {}", func(t *testing.T) {
+		got := isValidBrace("abc {} asfasf asf}}gg { f {")
+		want := true
+
+		assert.Equal(t, got, want)
+	})
+	t.Run("not valid {}", func(t *testing.T) {
+		got := isValidBrace("abc { asfasf asf}}gg { f {")
+		want := false
+
+		assert.Equal(t, got, want)
+	})
+	t.Run("valid ()", func(t *testing.T) {
+		got := isValidParen("abc () asfasf asf))gg ( f (")
+		want := true
+
+		assert.Equal(t, got, want)
+	})
+	t.Run("not valid ()", func(t *testing.T) {
+		got := isValidParen("abc ( asfasf asf))gg ( f (")
+		want := false
 
 		assert.Equal(t, got, want)
 	})
