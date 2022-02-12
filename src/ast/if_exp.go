@@ -5,9 +5,9 @@ import tok "github.com/Force4760/pipes/src/tokens"
 // AST for an If expression
 // if { --- then --- } { --- else ---}
 type IfExpression struct {
-	Token tok.Token // the token.IF token
-	Then  []Expression
-	Else  []Expression
+	Token tok.Token    `json:"token"`
+	Then  []Expression `json:"then"`
+	Else  []Expression `json:"else"`
 }
 
 // Implementing the Expression interface
