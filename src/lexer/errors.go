@@ -7,13 +7,15 @@ type invalidError struct {
 	ch string
 }
 
+// Implement the error interface
 func (e *invalidError) Error() string {
 	return colorize.Colorize(
-		"Error: Found and Invalid Identifier: "+e.ch,
+		"Error: Found an Invalid Character: "+e.ch,
 		colorize.RED,
 	)
 }
 
+// Create a new invalidError
 func InvalidError(ch string) error {
 	return &invalidError{ch: ch}
 }
@@ -24,6 +26,7 @@ type parenError struct {
 	ch string
 }
 
+// Implement the error interface
 func (e *parenError) Error() string {
 	return colorize.Colorize(
 		"Error: The number of "+e.ch+" does not match",
@@ -31,6 +34,7 @@ func (e *parenError) Error() string {
 	)
 }
 
+// Create a new parenError
 func ParenError(ch string) error {
 	return &parenError{ch: ch}
 }
