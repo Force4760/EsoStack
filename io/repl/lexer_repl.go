@@ -20,22 +20,28 @@ func Lexer(in io.Reader) {
 		}
 		line := scanner.Text()
 
-		// Create the lexer
-		lex, err := lexer.New(line)
+		lex, err := LexerReturn(line)
 
 		if err != nil {
 			fmt.Println(err)
 		} else {
-			// Tokenize
-			err = lex.Tokenize()
-
-			// Output
-			if err != nil {
-				fmt.Println(err)
-			} else {
-				fmt.Println(lex.Tokens)
-			}
+			fmt.Println(lex.Tokens)
 		}
 
 	}
+}
+
+func LexerReturn(line string) (*lexer.Lexer, error) {
+	// Create the lexer
+	lex, err := lexer.New(line)
+
+	if err != nil {
+		return nil, err
+
+	}
+
+	// Tokenize
+	err = lex.Tokenize()
+
+	return lex, err
 }
