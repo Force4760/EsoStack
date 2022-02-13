@@ -14,6 +14,6 @@ func (f *ForExpression) expressionNode() {}
 
 // Implementing the Node interface
 func (f *ForExpression) Node() string {
-	//      For{----------body--------}
+	//      For{---------body---------}
 	return "For{ " + toStr(f.Body) + "}"
 }
