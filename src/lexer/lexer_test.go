@@ -72,7 +72,7 @@ func TestLexer(t *testing.T) {
 		assert.Equal(t, got, want)
 	})
 	t.Run("Math Functions", func(t *testing.T) {
-		input := "√x sqrt x! fact exp log sin cos tan ↑ max ↓ min ± simetric ⌊x⌋ floor ⌈x⌉ ceil |x| abs"
+		input := "√x sqrt x! fact exp log sin cos tan ↑ max ↓ min ± sim ⌊x⌋ floor ⌈x⌉ ceil |x| abs"
 		got, _ := New(input)
 
 		got.Tokenize()
@@ -80,7 +80,7 @@ func TestLexer(t *testing.T) {
 		want := &Lexer{
 			input:  input,
 			length: len(input),
-			chrs:   []string{"√x", "sqrt", "x!", "fact", "exp", "log", "sin", "cos", "tan", "↑", "max", "↓", "min", "±", "simetric", "⌊x⌋", "floor", "⌈x⌉", "ceil", "|x|", "abs"},
+			chrs:   []string{"√x", "sqrt", "x!", "fact", "exp", "log", "sin", "cos", "tan", "↑", "max", "↓", "min", "±", "sim", "⌊x⌋", "floor", "⌈x⌉", "ceil", "|x|", "abs"},
 			Tokens: []tokens.Token{
 				{Type: tokens.SQRT, Literal: "√x"},
 				{Type: tokens.SQRT, Literal: "sqrt"},
@@ -95,8 +95,8 @@ func TestLexer(t *testing.T) {
 				{Type: tokens.MAX, Literal: "max"},
 				{Type: tokens.MIN, Literal: "↓"},
 				{Type: tokens.MIN, Literal: "min"},
-				{Type: tokens.SIMETRIC, Literal: "±"},
-				{Type: tokens.SIMETRIC, Literal: "simetric"},
+				{Type: tokens.SIM, Literal: "±"},
+				{Type: tokens.SIM, Literal: "sim"},
 				{Type: tokens.FLOOR, Literal: "⌊x⌋"},
 				{Type: tokens.FLOOR, Literal: "floor"},
 				{Type: tokens.CEIL, Literal: "⌈x⌉"},

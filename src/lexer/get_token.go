@@ -63,8 +63,8 @@ func (le *Lexer) GetToken(index int) (tok.Token, error) {
 		token = tok.MAX
 	case "↓", "min":
 		token = tok.MIN
-	case "±", "simetric":
-		token = tok.SIMETRIC
+	case "±", "sim":
+		token = tok.SIM
 	case "⌊x⌋", "floor":
 		token = tok.FLOOR
 	case "⌈x⌉", "ceil":

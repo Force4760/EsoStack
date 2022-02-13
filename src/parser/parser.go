@@ -6,6 +6,7 @@ import (
 	"github.com/Force4760/pipes/src/tokens"
 )
 
+// Parser struct
 type Parser struct {
 	tokens    []tokens.Token
 	curToken  tokens.Token
@@ -14,6 +15,7 @@ type Parser struct {
 	length    int
 }
 
+// Create a new Parser object from a lexer
 func New(lex *lexer.Lexer) *Parser {
 	p := &Parser{
 		tokens: lex.Tokens,
@@ -26,9 +28,11 @@ func New(lex *lexer.Lexer) *Parser {
 	return p
 }
 
+// Parse a program into an AST
 func (p *Parser) ParseProgram() (*ast.FunctionFile, error) {
 	program := ast.FunctionFile{}
 
+	// while the token is not EOF
 	for p.curToken.Type != tokens.EOF {
 		parsed, err := p.Parse()
 
@@ -42,6 +46,7 @@ func (p *Parser) ParseProgram() (*ast.FunctionFile, error) {
 	return &program, nil
 }
 
+// Parse a single Token into an AST expression
 func (p *Parser) Parse() (ast.Expression, error) {
 	var exp ast.Expression
 	var err error = nil
@@ -50,6 +55,7 @@ func (p *Parser) Parse() (ast.Expression, error) {
 	case tokens.IF:
 		exp, err = p.parseIfExpression()
 
+		// Found an error
 		if err != nil {
 			return nil, err
 		}
@@ -57,16 +63,17 @@ func (p *Parser) Parse() (ast.Expression, error) {
 	case tokens.FOR:
 		exp, err = p.parseForExpression()
 
+		// Found an error
 		if err != nil {
 			return nil, err
 		}
 
 	case tokens.LBRACE:
-		// Misplaced left brace {
+		// Misplaced left brace { Error
 		return nil, ExtraLBraceError
 
 	case tokens.RBRACE:
-		// Misplaced right brace }
+		// Misplaced right brace } Error
 		return nil, ExtraRBraceError
 
 	default:

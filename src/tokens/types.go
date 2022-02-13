@@ -43,7 +43,7 @@ const (
 	ABS
 	MAX
 	MIN
-	SIMETRIC
+	SIM
 
 	// Stack Funcs
 	SWAP
