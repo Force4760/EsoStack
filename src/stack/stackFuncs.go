@@ -161,13 +161,34 @@ func (s *Stack) Pop2NoTest() (float64, float64) {
 // Does not remove this value from the stack
 //
 // Needs 1 element
-func (s *Stack) IsTrue() bool {
+func (s *Stack) IsTrueNotRemove() (bool, error) {
 	if s.length < 1 {
-		return false
+		return false, ErrNotEnoughtValuesOnTheStack
 	}
 
 	a := s.PopNoTest()
 	s.Push(a)
 
-	return int(a) != 0
+	return int(a) != 0, nil
+}
+
+// Predicate for checking if the top element of the stack is different from 0
+// Removes this value from the stack
+//
+// Needs 1 element
+func (s *Stack) IsTrue() (bool, error) {
+	if s.length < 1 {
+		return false, ErrNotEnoughtValuesOnTheStack
+	}
+
+	a := s.PopNoTest()
+
+	return int(a) != 0, nil
+}
+
+// Empty the stack
+// TODO: Test
+func (s *Stack) Empty() {
+	s.length = 0
+	s.values = []float64{}
 }

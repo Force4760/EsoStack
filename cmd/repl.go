@@ -27,7 +27,7 @@ var replCmd = &cobra.Command{
 		} else if isParserOn {
 			repl.Parser(os.Stdin)
 		} else {
-			fmt.Println("REPL")
+			repl.Repl(os.Stdin)
 		}
 	},
 }

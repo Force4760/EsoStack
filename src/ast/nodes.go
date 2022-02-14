@@ -1,10 +1,12 @@
 package ast
 
-type Node interface {
-	Node() string
-}
+import (
+	"github.com/Force4760/pipes/src/stack"
+	"github.com/Force4760/pipes/src/tokens"
+)
 
 type Expression interface {
-	Node
-	expressionNode()
+	Literal() string
+	Type() tokens.TokenType
+	Eval(*stack.Stack) error
 }

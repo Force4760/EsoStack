@@ -10,7 +10,7 @@ func (s *Stack) Equal() error {
 
 	a, b := s.Pop2NoTest()
 
-	c := boolToInt(
+	c := boolToFloat(
 		isEqual(a, b),
 	)
 	s.Push(c)
@@ -28,7 +28,7 @@ func (s *Stack) Lesser() error {
 
 	a, b := s.Pop2NoTest()
 
-	c := boolToInt(a < b)
+	c := boolToFloat(a < b)
 	s.Push(c)
 
 	return nil
@@ -44,7 +44,7 @@ func (s *Stack) Greater() error {
 
 	a, b := s.Pop2NoTest()
 
-	c := boolToInt(a > b)
+	c := boolToFloat(a > b)
 	s.Push(c)
 
 	return nil
@@ -60,7 +60,7 @@ func (s *Stack) LesserEq() error {
 
 	a, b := s.Pop2NoTest()
 
-	c := boolToInt(a <= b)
+	c := boolToFloat(a <= b)
 	s.Push(c)
 
 	return nil
@@ -76,7 +76,7 @@ func (s *Stack) GreaterEq() error {
 
 	a, b := s.Pop2NoTest()
 
-	c := boolToInt(a >= b)
+	c := boolToFloat(a >= b)
 	s.Push(c)
 
 	return nil
@@ -92,7 +92,7 @@ func (s *Stack) Diferent() error {
 
 	a, b := s.Pop2NoTest()
 
-	c := boolToInt(
+	c := boolToFloat(
 		!isEqual(a, b),
 	)
 	s.Push(c)

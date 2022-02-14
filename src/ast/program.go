@@ -1,6 +1,23 @@
 package ast
 
-import "encoding/json"
+import (
+	"encoding/json"
+
+	"github.com/Force4760/pipes/src/stack"
+)
+
+//////////////////////////////////////////////////////////////
+// PROGRAM                                                  //
+//////////////////////////////////////////////////////////////
+
+// Datastructure that holds all different files
+type Program struct {
+	Files map[string]FunctionFile
+}
+
+//////////////////////////////////////////////////////////////
+// FunctionFile                                             //
+//////////////////////////////////////////////////////////////
 
 // Datastructure conteining the operations of an individual file
 type FunctionFile []Expression
@@ -21,7 +38,15 @@ func (f *FunctionFile) ToJson() string {
 	return string(js)
 }
 
-// Datastructure that holds all different files
-type Program struct {
-	Files map[string]Expression
+// Evaluate every Node in an FunctionFile
+func (f FunctionFile) Eval(s *stack.Stack) error {
+	for _, i := range f {
+		err := i.Eval(s)
+
+		if err != nil {
+			return err
+		}
+	}
+
+	return nil
 }

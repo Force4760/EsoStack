@@ -190,7 +190,7 @@ func TestIsTrue(t *testing.T) {
 	t.Run("IsTrue non-empty 0", func(t *testing.T) {
 		got := NewStack([]float64{1, 2, 0})
 
-		a := got.IsTrue()
+		a, _ := got.IsTrueNotRemove()
 
 		want := false
 
@@ -199,7 +199,7 @@ func TestIsTrue(t *testing.T) {
 	t.Run("IsTrue non-empty non-0", func(t *testing.T) {
 		got := NewStack([]float64{1, 2, 3})
 
-		a := got.IsTrue()
+		a, _ := got.IsTrueNotRemove()
 
 		want := true
 
@@ -209,9 +209,39 @@ func TestIsTrue(t *testing.T) {
 	t.Run("IsTrue empty", func(t *testing.T) {
 		got := NewStack([]float64{})
 
-		a := got.IsTrue()
+		_, a := got.IsTrueNotRemove()
+
+		want := ErrNotEnoughtValuesOnTheStack
+
+		assert.Equal(t, a, want)
+
+	})
+
+	t.Run("IsTrue non-empty 0", func(t *testing.T) {
+		got := NewStack([]float64{1, 2, 0})
+
+		a, _ := got.IsTrue()
 
 		want := false
+
+		assert.Equal(t, a, want)
+	})
+	t.Run("IsTrue non-empty non-0", func(t *testing.T) {
+		got := NewStack([]float64{1, 2, 3})
+
+		a, _ := got.IsTrue()
+
+		want := true
+
+		assert.Equal(t, a, want)
+
+	})
+	t.Run("IsTrue empty", func(t *testing.T) {
+		got := NewStack([]float64{})
+
+		_, a := got.IsTrue()
+
+		want := ErrNotEnoughtValuesOnTheStack
 
 		assert.Equal(t, a, want)
 

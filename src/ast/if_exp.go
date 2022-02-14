@@ -1,20 +1,59 @@
 package ast
 
-import tok "github.com/Force4760/pipes/src/tokens"
+import (
+	"github.com/Force4760/pipes/src/stack"
+	"github.com/Force4760/pipes/src/tokens"
+)
 
 // AST for an If expression
 // if { --- then --- } { --- else ---}
 type IfExpression struct {
-	Token tok.Token    `json:"token"`
+	Token tokens.Token `json:"token"`
 	Then  []Expression `json:"then"`
 	Else  []Expression `json:"else"`
 }
 
-// Implementing the Expression interface
-func (i *IfExpression) expressionNode() {}
-
 // Implementing the Node interface
-func (i *IfExpression) Node() string {
-	//      If{---------then---------}{---------else---------}
+func (i *IfExpression) Literal() string {
 	return "If{ " + toStr(i.Then) + "}{ " + toStr(i.Else) + "}"
+}
+
+// Implementing the Expression interface
+func (i *IfExpression) Type() tokens.TokenType {
+	return i.Token.Type
+}
+
+// Evaluate the If expression
+func (i *IfExpression) Eval(s *stack.Stack) error {
+	value, err := s.IsTrue()
+
+	if err != nil {
+		return err
+	}
+
+	if value {
+		// TRUE on the stack
+		// Evaluate each Node in the if-expression's then branch
+		for _, t := range i.Then {
+			err := t.Eval(s)
+
+			if err != nil {
+				return err
+			}
+		}
+
+	} else {
+		// FALSE on the stack
+		// Evaluate each Node in the if-expression's else branch
+		for _, e := range i.Else {
+			err := e.Eval(s)
+
+			if err != nil {
+				return err
+			}
+		}
+	}
+
+	return nil
+
 }

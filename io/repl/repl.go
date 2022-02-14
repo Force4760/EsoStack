@@ -1,11 +1,47 @@
 package repl
 
 import (
-	"github.com/Force4760/pipes/io/colorize"
+	"bufio"
+	"fmt"
+	"io"
+
+	"github.com/Force4760/pipes/src/stack"
 )
 
-var PROMPT = colorize.Colorize("-> ", colorize.GREEN)
-var MSG = colorize.Colorize("Hello! This is the Pipes programming language!", colorize.BLUE)
+func Repl(in io.Reader) {
+	scanner := bufio.NewScanner(in)
 
-func Repl() {
+	stk := stack.NewStack([]float64{})
+
+	for {
+		fmt.Print(PROMPT)
+
+		// Get the input
+		scanned := scanner.Scan()
+		if !scanned {
+			return
+		}
+		line := scanner.Text()
+
+		if !Commands(line, stk) {
+			err := ReplReturn(line, stk)
+
+			if err != nil {
+				fmt.Println(err)
+			}
+		}
+
+	}
+}
+
+func ReplReturn(line string, stk *stack.Stack) error {
+	parsed, err := ParserReturn(line)
+
+	if err != nil {
+		return err
+	}
+
+	err = parsed.Eval(stk)
+
+	return err
 }

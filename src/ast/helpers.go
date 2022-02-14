@@ -6,7 +6,7 @@ func toStr(e []Expression) string {
 
 	// Add every element to result
 	for _, i := range e {
-		result += i.Node() + " "
+		result += i.Literal() + " "
 	}
 
 	return result

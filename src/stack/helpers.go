@@ -13,7 +13,7 @@ var ErrDivideBy0 error = errors.New("it's not possible to divide by 0")
 //
 // true  -> 1
 // false -> 0
-func boolToInt(condition bool) float64 {
+func boolToFloat(condition bool) float64 {
 	if condition {
 		return 1
 	}
@@ -42,4 +42,15 @@ func factorial(num int) int {
 	}
 
 	return result
+}
+
+// Convert a boolean to a float
+//
+// true  -> 1
+// false -> 0
+func FloatToInt(condition bool) float64 {
+	if condition {
+		return 1
+	}
+	return 0
 }
