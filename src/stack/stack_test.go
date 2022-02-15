@@ -247,3 +247,45 @@ func TestIsTrue(t *testing.T) {
 
 	})
 }
+
+func TestEmpty(t *testing.T) {
+	t.Run("Empty non-empty", func(t *testing.T) {
+		got := NewStack([]float64{1, 2, 0})
+
+		got.Empty()
+
+		want := NewStack([]float64{})
+
+		assert.Equal(t, got, want)
+	})
+	t.Run("Empty empty", func(t *testing.T) {
+		got := NewStack([]float64{})
+
+		got.Empty()
+
+		want := NewStack([]float64{})
+
+		assert.Equal(t, got, want)
+	})
+}
+
+func TestString(t *testing.T) {
+	t.Run("Empty", func(t *testing.T) {
+		stk := NewStack([]float64{})
+
+		got := stk.String()
+
+		want := "\033[0;32m | \033[0m\033[0;34m  ( 0 )\033[0m"
+
+		assert.Equal(t, got, want)
+	})
+	t.Run("Non-Empty", func(t *testing.T) {
+		stk := NewStack([]float64{1, 2, 3, 4, 5})
+
+		got := stk.String()
+
+		want := "\033[0;32m | \033[0m1.00\033[0;32m | \033[0m2.00\033[0;32m | \033[0m3.00\033[0;32m | \033[0m4.00\033[0;32m | \033[0m5.00\033[0;32m | \033[0m\033[0;34m  ( 5 )\033[0m"
+
+		assert.Equal(t, got, want)
+	})
+}

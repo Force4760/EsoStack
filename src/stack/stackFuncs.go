@@ -187,7 +187,6 @@ func (s *Stack) IsTrue() (bool, error) {
 }
 
 // Empty the stack
-// TODO: Test
 func (s *Stack) Empty() {
 	s.length = 0
 	s.values = []float64{}

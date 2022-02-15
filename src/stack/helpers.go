@@ -3,11 +3,19 @@ package stack
 import (
 	"errors"
 	"math"
+
+	"github.com/Force4760/pipes/io/colorize"
 )
 
-var ErrNotEnoughtValuesOnTheStack error = errors.New("the operation needed more arguments than the ones available on the stack")
-var ErrNotValid error = errors.New("the provided argument was not accepted by the operation")
-var ErrDivideBy0 error = errors.New("it's not possible to divide by 0")
+var ErrNotEnoughtValuesOnTheStack = errors.New(
+	colorize.Error("The operation needs more arguments than the ones available on the stack."),
+)
+var ErrNotValid = errors.New(
+	colorize.Error("The provided argument was not accepted by the operation."),
+)
+var ErrDivideBy0 = errors.New(
+	colorize.Error("It's not possible to divide by 0."),
+)
 
 // Convert a boolean to a float
 //
@@ -48,9 +56,8 @@ func factorial(num int) int {
 //
 // true  -> 1
 // false -> 0
-func FloatToInt(condition bool) float64 {
-	if condition {
-		return 1
-	}
-	return 0
+func FloatToBool(n float64) bool {
+	return int(n) != 0
 }
+
+// TODO: Test file
