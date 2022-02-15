@@ -9,6 +9,10 @@ import (
 	"github.com/Force4760/pipes/src/parser"
 )
 
+//////////////////////////////////////////////////////////////
+// PARSER COMMAND                                           //
+//////////////////////////////////////////////////////////////
+
 func Parser(in io.Reader) {
 	scanner := bufio.NewScanner(in)
 	for {
@@ -21,7 +25,7 @@ func Parser(in io.Reader) {
 		}
 		line := scanner.Text()
 
-		parsed, err := ParserReturn(line)
+		parsed, err := parserReturn(line)
 
 		if err != nil {
 			fmt.Println(err)
@@ -32,8 +36,8 @@ func Parser(in io.Reader) {
 	}
 }
 
-func ParserReturn(line string) (*ast.FunctionFile, error) {
-	lex, err := LexerReturn(line)
+func parserReturn(line string) (*ast.FunctionFile, error) {
+	lex, err := lexerReturn(line)
 
 	if err != nil {
 		return nil, err

@@ -8,6 +8,10 @@ import (
 	"github.com/Force4760/pipes/src/lexer"
 )
 
+//////////////////////////////////////////////////////////////
+// LEXER COMMAND                                            //
+//////////////////////////////////////////////////////////////
+
 func Lexer(in io.Reader) {
 	scanner := bufio.NewScanner(in)
 	for {
@@ -20,7 +24,7 @@ func Lexer(in io.Reader) {
 		}
 		line := scanner.Text()
 
-		lex, err := LexerReturn(line)
+		lex, err := lexerReturn(line)
 
 		if err != nil {
 			fmt.Println(err)
@@ -31,7 +35,7 @@ func Lexer(in io.Reader) {
 	}
 }
 
-func LexerReturn(line string) (*lexer.Lexer, error) {
+func lexerReturn(line string) (*lexer.Lexer, error) {
 	// Create the lexer
 	lex, err := lexer.New(line)
 

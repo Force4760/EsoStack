@@ -59,5 +59,3 @@ func factorial(num int) int {
 func FloatToBool(n float64) bool {
 	return int(n) != 0
 }
-
-// TODO: Test file

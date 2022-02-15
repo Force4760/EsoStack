@@ -8,6 +8,10 @@ import (
 	"github.com/Force4760/pipes/src/stack"
 )
 
+//////////////////////////////////////////////////////////////
+// NORMAL REPL COMMAND                                      //
+//////////////////////////////////////////////////////////////
+
 func Repl(in io.Reader) {
 	scanner := bufio.NewScanner(in)
 
@@ -24,7 +28,7 @@ func Repl(in io.Reader) {
 		line := scanner.Text()
 
 		if !Commands(line, stk) {
-			err := ReplReturn(line, stk)
+			err := replReturn(line, stk)
 
 			if err != nil {
 				fmt.Println(err)
@@ -34,8 +38,8 @@ func Repl(in io.Reader) {
 	}
 }
 
-func ReplReturn(line string, stk *stack.Stack) error {
-	parsed, err := ParserReturn(line)
+func replReturn(line string, stk *stack.Stack) error {
+	parsed, err := parserReturn(line)
 
 	if err != nil {
 		return err
