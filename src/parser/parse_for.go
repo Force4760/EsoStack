@@ -13,7 +13,7 @@ func (p *Parser) parseForExpression() (*ast.ForExpression, error) {
 
 	// BODY
 	if !p.expectPeek(tokens.LBRACE) {
-		return nil, NoBraceAfterForError
+		return nil, ErrNoBraceAfterFor
 	}
 	p.nextToken()
 

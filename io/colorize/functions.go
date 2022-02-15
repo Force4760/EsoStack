@@ -17,3 +17,9 @@ func ColorizeWord(s string, word string, c Color) string {
 
 	return replaced
 }
+
+// Colorize an error string
+func Error(s string) string {
+	// "RedCode CurrentString EndCode"
+	return string(RED) + s + string(END)
+}

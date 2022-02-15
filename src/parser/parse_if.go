@@ -13,7 +13,7 @@ func (p *Parser) parseIfExpression() (*ast.IfExpression, error) {
 
 	// THEN
 	if !p.expectPeek(tokens.LBRACE) {
-		return nil, NoBraceAfterIfError
+		return nil, ErrNoBraceAfterIf
 	}
 	p.nextToken()
 
@@ -30,7 +30,7 @@ func (p *Parser) parseIfExpression() (*ast.IfExpression, error) {
 
 	// ELSE
 	if !p.expectPeek(tokens.LBRACE) {
-		return nil, NoElseError
+		return nil, ErrNoElse
 	}
 	p.nextToken()
 

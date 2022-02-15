@@ -66,7 +66,7 @@ func TestParserIf(t *testing.T) {
 
 		_, got := pars.ParseProgram()
 
-		wanted := NoBraceAfterIfError
+		wanted := ErrNoBraceAfterIf
 
 		assert.Equal(t, wanted, got, "Expecting a NoBraceAfterIfError error")
 	})
@@ -79,7 +79,7 @@ func TestParserIf(t *testing.T) {
 
 		_, got := pars.ParseProgram()
 
-		wanted := NoElseError
+		wanted := ErrNoElse
 
 		assert.Equal(t, wanted, got, "Expecting a NoElseError error")
 	})
@@ -123,7 +123,7 @@ func TestParserFor(t *testing.T) {
 
 		_, got := pars.ParseProgram()
 
-		wanted := NoBraceAfterForError
+		wanted := ErrNoBraceAfterFor
 
 		assert.Equal(t, wanted, got, "Expecting a NoBraceAfterForError error")
 	})

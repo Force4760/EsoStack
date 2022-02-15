@@ -70,11 +70,11 @@ func (p *Parser) Parse() (ast.Expression, error) {
 
 	case tokens.LBRACE:
 		// Misplaced left brace { Error
-		return nil, ExtraLBraceError
+		return nil, ErrExtraLBrace
 
 	case tokens.RBRACE:
 		// Misplaced right brace } Error
-		return nil, ExtraRBraceError
+		return nil, ErrExtraRBrace
 
 	default:
 		exp = &ast.ValExpression{Token: p.curToken}

@@ -40,11 +40,14 @@ func (v *ValExpression) Eval(s *stack.Stack) error {
 	case tokens.POW:
 		err = s.Power()
 
-	// TODO: Implement Logic
 	case tokens.AND:
+		err = s.And()
 	case tokens.OR:
+		err = s.Or()
 	case tokens.XOR:
+		err = s.Xor()
 	case tokens.NOT:
+		err = s.Not()
 
 	case tokens.LESS:
 		err = s.Lesser()

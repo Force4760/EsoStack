@@ -12,7 +12,7 @@ type misplacedError struct {
 // Create a colorized Misplaced Error
 func MisplacedError(msg string) error {
 	return &misplacedError{
-		colorize.Colorize(msg, colorize.RED),
+		colorize.Error(msg),
 	}
 }
 
@@ -23,8 +23,8 @@ func (e *misplacedError) Error() string {
 
 // Standard Errors for the Parser Package
 
-var NoBraceAfterIfError = MisplacedError("Expected { after if")
-var NoBraceAfterForError = MisplacedError("Expected { after for")
-var ExtraLBraceError = MisplacedError("Found a non-expected {")
-var ExtraRBraceError = MisplacedError("Found a non-expected }")
-var NoElseError = MisplacedError("Expected an else expression after if as \"if { then } { else }\"")
+var ErrNoBraceAfterIf = MisplacedError("Expected { after if")
+var ErrNoBraceAfterFor = MisplacedError("Expected { after for")
+var ErrExtraLBrace = MisplacedError("Found a non-expected {")
+var ErrExtraRBrace = MisplacedError("Found a non-expected }")
+var ErrNoElse = MisplacedError("Expected an else expression after if as \"if { then } { else }\"")
