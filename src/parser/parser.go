@@ -6,6 +6,10 @@ import (
 	"github.com/Force4760/pipes/src/tokens"
 )
 
+//////////////////////////////////////////////////////////////
+// PARSER                                                   //
+//////////////////////////////////////////////////////////////
+
 // Parser struct
 type Parser struct {
 	tokens    []tokens.Token

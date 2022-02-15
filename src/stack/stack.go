@@ -6,6 +6,10 @@ import (
 	"github.com/Force4760/pipes/io/colorize"
 )
 
+//////////////////////////////////////////////////////////////
+// STACK                                                    //
+//////////////////////////////////////////////////////////////
+
 var delim = colorize.Colorize(" | ", colorize.GREEN)
 
 // Stack data structure

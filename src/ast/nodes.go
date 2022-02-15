@@ -5,6 +5,10 @@ import (
 	"github.com/Force4760/pipes/src/tokens"
 )
 
+//////////////////////////////////////////////////////////////
+// Expression                                               //
+//////////////////////////////////////////////////////////////
+
 type Expression interface {
 	Literal() string
 	Type() tokens.TokenType

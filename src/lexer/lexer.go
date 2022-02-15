@@ -4,6 +4,10 @@ import (
 	tok "github.com/Force4760/pipes/src/tokens"
 )
 
+//////////////////////////////////////////////////////////////
+// Lexer                                                    //
+//////////////////////////////////////////////////////////////
+
 // Lexer type
 // Responsible for Tokenizing the provided src code
 type Lexer struct {

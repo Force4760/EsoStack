@@ -5,6 +5,10 @@ import (
 	"github.com/Force4760/pipes/src/tokens"
 )
 
+//////////////////////////////////////////////////////////////
+// For {body}                                               //
+//////////////////////////////////////////////////////////////
+
 // AST for a FOR expression
 // for { --- }
 type ForExpression struct {

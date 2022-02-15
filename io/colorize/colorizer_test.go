@@ -7,9 +7,9 @@ import (
 )
 
 func TestColorize(t *testing.T) {
-	t.Run("Test RED", func(t *testing.T) {
-		got := Colorize("Testing the colorizer", RED)
-		want := "\033[0;31mTesting the colorizer\033[0m"
+	t.Run("Test BLUE", func(t *testing.T) {
+		got := Colorize("Testing the colorizer", BLUE)
+		want := "\033[0;34mTesting the colorizer\033[0m"
 
 		assert.Equal(t, want, got)
 	})
@@ -44,6 +44,15 @@ func TestColorizeWord(t *testing.T) {
 
 		got := ColorizeWord("Testing the colorizer", "Testing the colorizer", RED)
 		want := "\033[0;31mTesting the colorizer\033[0m"
+		assert.Equal(t, want, got)
+	})
+}
+
+func TestColorizeError(t *testing.T) {
+	t.Run("Test Error", func(t *testing.T) {
+		got := Error("Testing the Error")
+		want := Colorize("Testing the Error", RED)
+
 		assert.Equal(t, want, got)
 	})
 }

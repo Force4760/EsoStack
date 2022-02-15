@@ -7,6 +7,10 @@ import (
 	"github.com/Force4760/pipes/src/tokens"
 )
 
+//////////////////////////////////////////////////////////////
+// Value                                                    //
+//////////////////////////////////////////////////////////////
+
 // AST for any kind of value
 type ValExpression struct {
 	Token tokens.Token `json:"token"`

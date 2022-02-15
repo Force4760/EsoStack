@@ -44,7 +44,6 @@ func (le *Lexer) Split() {
 			default:
 				// Any other rune
 				buffer += string(i)
-
 			}
 
 		}

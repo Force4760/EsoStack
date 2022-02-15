@@ -5,6 +5,10 @@ import (
 	"github.com/Force4760/pipes/src/tokens"
 )
 
+//////////////////////////////////////////////////////////////
+// If {then} {else}                                         //
+//////////////////////////////////////////////////////////////
+
 // AST for an If expression
 // if { --- then --- } { --- else ---}
 type IfExpression struct {
