@@ -141,7 +141,7 @@ func TestLexerBraces(t *testing.T) {
 		input := "{ test"
 		_, got := New(input)
 
-		want := ParenError("{ }")
+		want := ErrParen("{ }")
 
 		assert.Equal(t, got, want)
 	})
@@ -149,7 +149,7 @@ func TestLexerBraces(t *testing.T) {
 		input := "test }"
 		_, got := New(input)
 
-		want := ParenError("{ }")
+		want := ErrParen("{ }")
 
 		assert.Equal(t, got, want)
 	})
@@ -176,7 +176,7 @@ func TestLexerParens(t *testing.T) {
 		input := "( fas) as ag )"
 		_, got := New(input)
 
-		want := ParenError("( )")
+		want := ErrParen("( )")
 
 		assert.Equal(t, got, want)
 	})
@@ -184,7 +184,7 @@ func TestLexerParens(t *testing.T) {
 		input := "( (fas) (as ag )"
 		_, got := New(input)
 
-		want := ParenError("( )")
+		want := ErrParen("( )")
 
 		assert.Equal(t, got, want)
 	})
@@ -195,7 +195,7 @@ func TestLexerInvalid(t *testing.T) {
 		lex, _ := New(input)
 
 		got := lex.Tokenize()
-		want := InvalidError("$")
+		want := ErrInvalid("$")
 
 		assert.Equal(t, got, want)
 	})
@@ -204,7 +204,7 @@ func TestLexerInvalid(t *testing.T) {
 		lex, _ := New(input)
 
 		got := lex.Tokenize()
-		want := InvalidError("dgff")
+		want := ErrInvalid("dgff")
 
 		assert.Equal(t, got, want)
 	})

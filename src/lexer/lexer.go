@@ -17,9 +17,9 @@ type Lexer struct {
 // chrs and tokens are inicialized to their 0 values
 func New(input string) (*Lexer, error) {
 	if !isValidBrace(input) {
-		return nil, ParenError("{ }")
+		return nil, ErrParen("{ }")
 	} else if !isValidParen(input) {
-		return nil, ParenError("( )")
+		return nil, ErrParen("( )")
 	}
 
 	le := &Lexer{

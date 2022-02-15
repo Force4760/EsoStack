@@ -9,14 +9,13 @@ type invalidError struct {
 
 // Implement the error interface
 func (e *invalidError) Error() string {
-	return colorize.Colorize(
-		"Error: Found an Invalid Character: "+e.ch,
-		colorize.RED,
+	return colorize.Error(
+		"Error: Found an Invalid Character: " + e.ch,
 	)
 }
 
 // Create a new invalidError
-func InvalidError(ch string) error {
+func ErrInvalid(ch string) error {
 	return &invalidError{ch: ch}
 }
 
@@ -35,6 +34,6 @@ func (e *parenError) Error() string {
 }
 
 // Create a new parenError
-func ParenError(ch string) error {
+func ErrParen(ch string) error {
 	return &parenError{ch: ch}
 }

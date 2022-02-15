@@ -114,7 +114,7 @@ func (le *Lexer) GetToken(index int) (tok.Token, error) {
 			token = tok.FLOAT
 		} else {
 			// Invalid token, returns an error
-			return tok.NewToken(tok.INVALID, ch), InvalidError(ch)
+			return tok.NewToken(tok.INVALID, ch), ErrInvalid(ch)
 		}
 	}
 
