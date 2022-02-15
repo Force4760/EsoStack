@@ -18,4 +18,6 @@ func toStr(e []Expression) string {
 	return result
 }
 
-var ErrUnknown error = errors.New(colorize.Colorize("Unknown AST Node, please report this bug", colorize.RED))
+var ErrUnknown error = errors.New(
+	colorize.Error("Unknown AST Node, please report this bug"),
+)

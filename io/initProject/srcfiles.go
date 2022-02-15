@@ -1,18 +1,11 @@
 package initProject
 
 import (
-	"fmt"
 	"io/ioutil"
 )
 
 // Create the src files
 func srcFiles(folder string, n int) {
-	// The min number of files is 1
-	// The max number of files is 26
-	if n < 1 || n > 26 {
-		fmt.Println("Error: The number of files must be between 1 and 26")
-	}
-
 	for i := 0; i < n; i++ {
 		// name of the file
 		// n=0 -> A    n=1 -> B    ...    n=26 -> Z

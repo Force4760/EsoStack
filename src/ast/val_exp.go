@@ -121,7 +121,7 @@ func (v *ValExpression) Eval(s *stack.Stack) error {
 		s.Push(num)
 
 	default:
-		break // TODO: Unknown error
+		return ErrUnknown
 	}
 
 	return err

@@ -8,6 +8,15 @@ import (
 
 // Init a new Pipes Project
 func Init(num int) {
+	// The min number of files is 1
+	// The max number of files is 26
+	if num < 1 || num > 26 {
+		fmt.Println(
+			colorize.Error("The number of files must be between 1 and 26."),
+		)
+		return
+	}
+
 	// get information
 	name, project, desc := get_input()
 
@@ -16,7 +25,7 @@ func Init(num int) {
 	if err != nil {
 		// if there was a problem
 		fmt.Println(
-			colorize.Colorize(err.Error(), colorize.RED),
+			colorize.Error(err.Error()),
 		)
 		return
 	}
@@ -26,7 +35,7 @@ func Init(num int) {
 	if err != nil {
 		// if there was a problem
 		fmt.Println(
-			colorize.Colorize(err.Error(), colorize.RED),
+			colorize.Error(err.Error()),
 		)
 		return
 	}
@@ -39,5 +48,7 @@ func Init(num int) {
 
 	chrsFile(project)
 
-	fmt.Println(colorize.Colorize("Project Created", colorize.GREEN))
+	fmt.Println(
+		colorize.Colorize("Project Created", colorize.GREEN),
+	)
 }
