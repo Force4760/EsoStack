@@ -1,4 +1,4 @@
-package repl
+package interpret
 
 import (
 	"fmt"
@@ -9,6 +9,10 @@ import (
 	"github.com/Force4760/pipes/io/colorize"
 	"github.com/Force4760/pipes/src/stack"
 )
+
+//////////////////////////////////////////////////////////////
+// REPL ADITIONAL COMMANDS                                  //
+//////////////////////////////////////////////////////////////
 
 // Prompt for the repl
 var PROMPT = colorize.Colorize("-> ", colorize.GREEN)
@@ -41,6 +45,10 @@ func Commands(line string, stk *stack.Stack) bool {
 
 	return false
 }
+
+//////////////////////////////////////////////////////////////
+// CLEAR SCREEN COMMAND                                     //
+//////////////////////////////////////////////////////////////
 
 // Clear Command Map
 // OS - clear cmd

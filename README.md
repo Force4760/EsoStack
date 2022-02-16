@@ -16,3 +16,19 @@ $ ./bin/pipes
 ### Testing
 
 ``make test``
+
+## TODO:
+
+- [X] Stack
+- [X] Lexer && Tokens
+- [X] Parser
+- [X] AST
+- [X] Interpreter
+- [X] Colorize output
+- [X] Project creator from the cli
+- [X] Repl
+- [X] Pipe src file loader
+- [ ] Project runner (with Pipe connections)
+- [ ] VS code extension
+- [ ] Micro extension
+- [ ] Vim Extension

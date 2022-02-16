@@ -1,4 +1,4 @@
-package repl
+package interpret
 
 import (
 	"bufio"
@@ -28,7 +28,7 @@ func Repl(in io.Reader) {
 		line := scanner.Text()
 
 		if !Commands(line, stk) {
-			err := replReturn(line, stk)
+			err := Interpret(line, stk)
 
 			if err != nil {
 				fmt.Println(err)
@@ -36,16 +36,4 @@ func Repl(in io.Reader) {
 		}
 
 	}
-}
-
-func replReturn(line string, stk *stack.Stack) error {
-	parsed, err := parserReturn(line)
-
-	if err != nil {
-		return err
-	}
-
-	err = parsed.Eval(stk)
-
-	return err
 }

@@ -1,16 +1,13 @@
-package repl
+package interpret
 
 import (
 	"bufio"
 	"fmt"
 	"io"
-
-	"github.com/Force4760/pipes/src/ast"
-	"github.com/Force4760/pipes/src/parser"
 )
 
 //////////////////////////////////////////////////////////////
-// PARSER COMMAND                                           //
+// PARSER REPL COMMAND                                      //
 //////////////////////////////////////////////////////////////
 
 func Parser(in io.Reader) {
@@ -34,16 +31,4 @@ func Parser(in io.Reader) {
 		}
 
 	}
-}
-
-func parserReturn(line string) (*ast.FunctionFile, error) {
-	lex, err := lexerReturn(line)
-
-	if err != nil {
-		return nil, err
-	}
-
-	parse := parser.New(lex)
-
-	return parse.ParseProgram()
 }

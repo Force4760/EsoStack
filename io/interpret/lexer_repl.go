@@ -1,15 +1,13 @@
-package repl
+package interpret
 
 import (
 	"bufio"
 	"fmt"
 	"io"
-
-	"github.com/Force4760/pipes/src/lexer"
 )
 
 //////////////////////////////////////////////////////////////
-// LEXER COMMAND                                            //
+// LEXER REPL COMMAND                                       //
 //////////////////////////////////////////////////////////////
 
 func Lexer(in io.Reader) {
@@ -33,19 +31,4 @@ func Lexer(in io.Reader) {
 		}
 
 	}
-}
-
-func lexerReturn(line string) (*lexer.Lexer, error) {
-	// Create the lexer
-	lex, err := lexer.New(line)
-
-	if err != nil {
-		return nil, err
-
-	}
-
-	// Tokenize
-	err = lex.Tokenize()
-
-	return lex, err
 }
