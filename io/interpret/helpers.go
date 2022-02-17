@@ -26,19 +26,28 @@ var MSG = colorize.Colorize("Hello! This is the Pipes programming language!", co
 // stack -> print the stack
 func Commands(line string, stk *stack.Stack) bool {
 	switch line {
-	case "clear":
+	case "clear", "cls":
 		// Clear the repl
 		ClearScreen()
 		return true
 
-	case "empty":
+	case "empty", "ept":
 		// Empty the stack
 		stk.Empty()
 		return true
 
-	case "stack":
+	case "stack", "stk":
 		// Print the stack
 		fmt.Println(stk)
+		return true
+
+	case "help":
+		// Print the available commands
+		fmt.Println(`
+	stack (stk) -> printe the current state of the stack
+	empty (ept) -> empty the stack
+	clear (cls) -> clear the terminal screen
+	help        -> show this message`)
 		return true
 
 	}

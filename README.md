@@ -28,7 +28,4 @@ $ ./bin/pipes
 - [X] Project creator from the cli
 - [X] Repl
 - [X] Pipe src file loader
-- [ ] Project runner (with Pipe connections)
-- [ ] VS code extension
-- [ ] Micro extension
-- [ ] Vim Extension
+- [ ] App

@@ -35,7 +35,7 @@ func readmeFile(name, project, desc string) {
 func chrsFile(folder string) {
 	docsText := []byte(`# Chars
 	
-Pipes         ->  ─ │ ┌ ┐ └ ┘ ┤ ├ ┴ ┬
+Pipes         ->  ─ │ ┌ ┐ └ ┘ ┤ ├ ┴ ┬ ┼
 
 Arithmetic    ->  + - * / % ^
 
