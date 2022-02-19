@@ -1,6 +1,6 @@
 package lexer
 
-import "github.com/force4760/stackit/io/colorize"
+import "github.com/force4760/esostack/io/colorize"
 
 // Error representing an Invalid Token
 type invalidError struct {

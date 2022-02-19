@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/force4760/stackit/cmd"
+	"github.com/force4760/esostack/cmd"
 )
 
 func main() {

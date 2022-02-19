@@ -1,7 +1,7 @@
 package lexer
 
 import (
-	tok "github.com/force4760/stackit/src/tokens"
+	tok "github.com/force4760/esostack/src/tokens"
 )
 
 //////////////////////////////////////////////////////////////

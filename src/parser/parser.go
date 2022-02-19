@@ -1,9 +1,9 @@
 package parser
 
 import (
-	"github.com/force4760/stackit/src/ast"
-	"github.com/force4760/stackit/src/lexer"
-	"github.com/force4760/stackit/src/tokens"
+	"github.com/force4760/esostack/src/ast"
+	"github.com/force4760/esostack/src/lexer"
+	"github.com/force4760/esostack/src/tokens"
 )
 
 //////////////////////////////////////////////////////////////

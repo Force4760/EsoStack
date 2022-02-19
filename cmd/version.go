@@ -3,7 +3,7 @@ package cmd
 import (
 	"fmt"
 
-	"github.com/force4760/stackit/version"
+	"github.com/force4760/esostack/version"
 	"github.com/spf13/cobra"
 )
 

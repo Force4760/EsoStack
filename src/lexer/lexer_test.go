@@ -3,7 +3,7 @@ package lexer
 import (
 	"testing"
 
-	"github.com/force4760/stackit/src/tokens"
+	"github.com/force4760/esostack/src/tokens"
 	"github.com/stretchr/testify/assert"
 )
 

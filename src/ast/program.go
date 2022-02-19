@@ -3,7 +3,7 @@ package ast
 import (
 	"encoding/json"
 
-	"github.com/force4760/stackit/src/stack"
+	"github.com/force4760/esostack/src/stack"
 )
 
 //////////////////////////////////////////////////////////////

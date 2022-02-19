@@ -4,7 +4,7 @@ import (
 	"errors"
 	"math"
 
-	"github.com/force4760/stackit/io/colorize"
+	"github.com/force4760/esostack/io/colorize"
 )
 
 var ErrNotEnoughtValuesOnTheStack = errors.New(

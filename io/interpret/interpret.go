@@ -1,10 +1,10 @@
 package interpret
 
 import (
-	"github.com/force4760/stackit/src/ast"
-	"github.com/force4760/stackit/src/lexer"
-	"github.com/force4760/stackit/src/parser"
-	"github.com/force4760/stackit/src/stack"
+	"github.com/force4760/esostack/src/ast"
+	"github.com/force4760/esostack/src/lexer"
+	"github.com/force4760/esostack/src/parser"
+	"github.com/force4760/esostack/src/stack"
 )
 
 func lexerReturn(line string) (*lexer.Lexer, error) {

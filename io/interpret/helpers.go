@@ -6,8 +6,8 @@ import (
 	"os/exec"
 	"runtime"
 
-	"github.com/force4760/stackit/io/colorize"
-	"github.com/force4760/stackit/src/stack"
+	"github.com/force4760/esostack/io/colorize"
+	"github.com/force4760/esostack/src/stack"
 )
 
 //////////////////////////////////////////////////////////////
