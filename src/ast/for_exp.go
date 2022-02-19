@@ -1,8 +1,8 @@
 package ast
 
 import (
-	"github.com/Force4760/pipes/src/stack"
-	"github.com/Force4760/pipes/src/tokens"
+	"github.com/force4760/stackit/src/stack"
+	"github.com/force4760/stackit/src/tokens"
 )
 
 //////////////////////////////////////////////////////////////

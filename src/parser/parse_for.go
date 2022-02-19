@@ -1,8 +1,8 @@
 package parser
 
 import (
-	"github.com/Force4760/pipes/src/ast"
-	"github.com/Force4760/pipes/src/tokens"
+	"github.com/force4760/stackit/src/ast"
+	"github.com/force4760/stackit/src/tokens"
 )
 
 // Parse expression of the type

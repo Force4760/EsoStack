@@ -1,7 +1,7 @@
 package parser
 
 import (
-	"github.com/Force4760/pipes/src/tokens"
+	"github.com/force4760/stackit/src/tokens"
 )
 
 // Predicate checking if the current Token is of type t

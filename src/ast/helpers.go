@@ -3,7 +3,7 @@ package ast
 import (
 	"errors"
 
-	"github.com/Force4760/pipes/io/colorize"
+	"github.com/force4760/stackit/io/colorize"
 )
 
 // Convert a list of expressions to a string

@@ -3,7 +3,7 @@ package parser
 import (
 	"testing"
 
-	"github.com/Force4760/pipes/src/lexer"
+	"github.com/force4760/stackit/src/lexer"
 
 	"github.com/stretchr/testify/assert"
 )
