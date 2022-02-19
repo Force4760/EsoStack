@@ -1,13 +1,11 @@
 package main
 
 import (
-	
-	"github.com/Force4760/pipes/cmd"
+	"github.com/force4760/stackit/cmd"
 )
 
 func main() {
 
-    
-    cmd.Execute()
-	
+	cmd.Execute()
+
 }

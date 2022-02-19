@@ -1,7 +1,7 @@
 package parser
 
 import (
-	"github.com/Force4760/pipes/io/colorize"
+	"github.com/force4760/stackit/io/colorize"
 )
 
 // Error representing a Misplaced Token

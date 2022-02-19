@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/Force4760/pipes/io/interpret"
+	"github.com/force4760/stackit/io/interpret"
 	"github.com/spf13/cobra"
 )
 

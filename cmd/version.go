@@ -2,7 +2,8 @@ package cmd
 
 import (
 	"fmt"
-	"github.com/Force4760/pipes/version"
+
+	"github.com/force4760/stackit/version"
 	"github.com/spf13/cobra"
 )
 

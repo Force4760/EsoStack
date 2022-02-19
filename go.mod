@@ -1,4 +1,4 @@
-module github.com/Force4760/pipes
+module github.com/force4760/stackit
 
 go 1.17
 

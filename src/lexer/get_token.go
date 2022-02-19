@@ -1,6 +1,6 @@
 package lexer
 
-import tok "github.com/Force4760/pipes/src/tokens"
+import tok "github.com/force4760/stackit/src/tokens"
 
 // Get the token at a specified index
 // Return an invalidError if it finds an INVALID Token
