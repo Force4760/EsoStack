@@ -22,6 +22,7 @@ A stack oriented eso-lang made in Go
 - [X] AST
 - [X] Interpreter
 - [X] Colorize output
-- [ ] Project creator from the cli
 - [X] Repl
 - [X] Src file interpreter
+- [ ] Project creator from the cli
+- [ ] UI

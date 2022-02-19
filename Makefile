@@ -3,7 +3,7 @@
 
 
 
-BIN_NAME=pipes
+BIN_NAME=esostack
 
 VERSION := $(shell grep "const Version " version/version.go | sed -E 's/.*"(.+)"$$/\1/')
 GIT_COMMIT=$(shell git rev-parse HEAD)
