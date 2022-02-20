@@ -52,3 +52,6 @@ func (m *Theme) Size(n fyne.ThemeSizeName) float32 {
 
 	return theme.DefaultTheme().Size(n)
 }
+
+// Window size
+var FavSize = fyne.NewSize(360, 440)

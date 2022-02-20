@@ -9,16 +9,39 @@ import (
 	"github.com/force4760/esostack/app/components"
 )
 
+// Create the Input and Output data bindings
 func createBindings() (binding.String, binding.String) {
+	// Input binding
 	inputStr := binding.NewString()
 	inputStr.Set("")
 
+	// Output Binding
 	outputStr := binding.NewString()
 	outputStr.Set("")
 
 	return inputStr, outputStr
 }
 
+// Create the content of the app
+func createContent(win fyne.Window) *fyne.Container {
+	in, out := createBindings()
+
+	// Input Editor
+	input := components.MakeEditorPage(in, out)
+
+	// App Toolbar
+	toolbar := components.MakeToolBar(in, out, win)
+
+	content := container.NewBorder(
+		toolbar,
+		nil, nil, nil,
+		input,
+	)
+
+	return content
+}
+
+// Setup the App and the Window
 func setupWin() fyne.Window {
 	// Create the app and window
 	myApp := app.New()
@@ -29,24 +52,8 @@ func setupWin() fyne.Window {
 		&appTheme.Theme{},
 	)
 	myWindow.Resize(
-		fyne.NewSize(360, 440),
+		appTheme.FavSize,
 	)
 
 	return myWindow
-}
-
-func createContent() *fyne.Container {
-	in, out := createBindings()
-
-	input := components.MakeEditorPage(in, out)
-
-	toolbar := components.MakeToolBar(in, out)
-
-	content := container.NewBorder(
-		toolbar,
-		nil, nil, nil,
-		input,
-	)
-
-	return content
 }

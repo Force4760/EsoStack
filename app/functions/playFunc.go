@@ -7,20 +7,26 @@ import (
 	"github.com/force4760/esostack/src/stack"
 )
 
+// Process Play/Run functionality
 func PlayFunc(in, out binding.String) func() {
 	return func() {
+		// Get the content of the input
 		s, err := in.Get()
 		if err != nil {
 			s = ""
 		}
 
+		// Create an empty stack
 		stk := stack.NewStack([]float64{})
 
+		// Interpret the input
 		err = interpret.Interpret(s, stk)
 
 		if err != nil {
+			// Show Error
 			out.Set(colorize.UndoError(err))
 		} else {
+			// Show the Stack
 			out.Set(stk.StringNoColor())
 		}
 	}

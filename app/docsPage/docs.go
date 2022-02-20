@@ -1,7 +1,7 @@
 package docs
 
 import (
-	"fyne.io/fyne/v2/container"
+	"fyne.io/fyne/v2"
 	"fyne.io/fyne/v2/widget"
 )
 
@@ -10,24 +10,16 @@ import (
 //////////////////////////////////////////////////////////////
 
 // Create the documentation page
-func DocsPage() *container.Scroll {
-	return container.NewVScroll(
-		widget.NewAccordion(
-			newItem("Math", mathOpDocs),
-			newItem("Comparisson", compOpDocs),
-			newItem("Logic", logicOpDocs),
-			newItem("Stack", stackOpDocs),
-			newItem("Functions", funcOpDocs),
-		),
-	)
-}
-
-// Create a single item for the acordion
-func newItem(title, content string) *widget.AccordionItem {
-	return widget.NewAccordionItem(
-		title,
-		widget.NewRichTextFromMarkdown(
-			content,
-		),
-	)
+func DocsPage() *widget.List {
+	docData := allOps
+	return widget.NewList(
+		func() int {
+			return len(docData)
+		},
+		func() fyne.CanvasObject {
+			return widget.NewLabel("")
+		},
+		func(i widget.ListItemID, o fyne.CanvasObject) {
+			o.(*widget.Label).SetText(docData[i].OneLineString())
+		})
 }
