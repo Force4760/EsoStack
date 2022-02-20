@@ -4,7 +4,7 @@
 package main
 
 import (
-	"github.com/force4760/esostack/cmd"
+	"github.com/force4760/esostack/src/cmd"
 )
 
 func main() {
