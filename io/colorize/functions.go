@@ -23,3 +23,22 @@ func Error(s string) string {
 	// "RedCode CurrentString EndCode"
 	return string(RED) + s + string(END)
 }
+
+// Colorize an error string
+func UndoError(e error) string {
+	str := e.Error()
+
+	withNoStart := strings.ReplaceAll(
+		str,
+		string(RED),
+		"",
+	)
+
+	withNoEnd := strings.ReplaceAll(
+		withNoStart,
+		string(END),
+		"",
+	)
+
+	return withNoEnd
+}

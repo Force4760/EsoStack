@@ -1,5 +1,3 @@
-//go:generate fyne bundle -o appTheme/bundled.go appTheme/Font.ttf
-
 package appTheme
 
 import (
@@ -9,8 +7,13 @@ import (
 	"fyne.io/fyne/v2/theme"
 )
 
-type Theme struct {
-}
+//go:generate fyne bundle -o appTheme/bundled.go appTheme/Font.ttf
+
+//////////////////////////////////////////////////////////////
+// COLOR THEME                                              //
+//////////////////////////////////////////////////////////////
+
+type Theme struct{}
 
 func (m *Theme) Color(n fyne.ThemeColorName, v fyne.ThemeVariant) color.Color {
 	switch n {

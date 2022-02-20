@@ -56,7 +56,7 @@ var stackOpDocs = operatorList([]operator{
 
 var funcOpDocs = operatorList([]operator{
 	{"Square Root", "sqrt, √x", 1, "√a"},
-	{"Factorial", "fact, x!", 1, "a! = a*(a-1)*(a-2)*...*1"},
+	{"Factorial", "fact, x!", 1, "a!"},
 	{"Sine", "sin", 1, "sin(a)"},
 	{"Cosine", "cos", 1, "cos(a)"},
 	{"Tangent", "tan", 1, "tan(a)"},

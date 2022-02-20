@@ -5,6 +5,10 @@ import (
 	"fyne.io/fyne/v2/widget"
 )
 
+//////////////////////////////////////////////////////////////
+// DOCS                                                     //
+//////////////////////////////////////////////////////////////
+
 // Create the documentation page
 func DocsPage() *container.Scroll {
 	return container.NewVScroll(
