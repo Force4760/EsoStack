@@ -6,17 +6,8 @@ import (
 	"github.com/force4760/esostack/src/io/colorize"
 )
 
-// Init a new Pipes Project
-func Init(num int) {
-	// The min number of files is 1
-	// The max number of files is 26
-	if num < 1 || num > 26 {
-		fmt.Println(
-			colorize.Error("The number of files must be between 1 and 26."),
-		)
-		return
-	}
-
+// Init a new EsoStack Project
+func Init() {
 	// get information
 	name, project, desc := get_input()
 
@@ -31,7 +22,7 @@ func Init(num int) {
 	}
 
 	// Try to create the src folder
-	err = makeDir(project + "/src")
+	err = makeDir(project + "/funcs")
 	if err != nil {
 		// if there was a problem
 		fmt.Println(
@@ -40,13 +31,11 @@ func Init(num int) {
 		return
 	}
 
-	srcFiles(project, num)
-
-	mainFile(project)
-
 	readmeFile(name, project, desc)
 
 	chrsFile(project)
+
+	funcLogFile(project)
 
 	fmt.Println(
 		colorize.Colorize("Project Created", colorize.GREEN),

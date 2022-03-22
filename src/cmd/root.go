@@ -9,7 +9,7 @@ import (
 
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
-	Use:   "pipes",
+	Use:   "esostack",
 	Short: "A stack orineted eso-lang",
 	Long:  `Stack oriented esoteric programming language`,
 }

@@ -18,7 +18,7 @@ var (
 var replCmd = &cobra.Command{
 	Use:   "repl",
 	Short: "Read Evaluate Print Loop",
-	Long:  `As an Interpreted stack oriented language, Pipes need a REPL, it allows you to have a quicker feedback by interpreting lines as you type`,
+	Long:  `As an Interpreted stack oriented language, EsoStack need a REPL, it allows you to have a quicker feedback by interpreting lines as you type`,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println(interpret.MSG)
 

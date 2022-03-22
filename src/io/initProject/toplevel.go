@@ -5,23 +5,11 @@ import (
 	"io/ioutil"
 )
 
-// Create the main file
-func mainFile(folder string) {
-	mainText := []byte(`
-
-}─┐   ┌──┐       ┌─────A───{
-  │ ┌─┤  ├─A──┐ ┌┴┐
-  └─┘ └──┘    │ └┬┘
-              └──┘`)
-
-	ioutil.WriteFile(folder+"/main.pipes", mainText, 0644)
-}
-
 // Create the project ReadMe
 func readmeFile(name, project, desc string) {
 	readmeText := []byte(
 		fmt.Sprintf(
-			"# %s\n\n## Project Information\n* Author: %s\n* Description: %s\n* Language: Pipes",
+			"# %s\n\n## Project Information\n* Author: %s\n* Description: %s\n* Language: EsoStack",
 			project,
 			name,
 			desc,
@@ -33,9 +21,7 @@ func readmeFile(name, project, desc string) {
 
 // Create the Characters file
 func chrsFile(folder string) {
-	docsText := []byte(`# Chars
-	
-Pipes         ->  ─ │ ┌ ┐ └ ┘ ┤ ├ ┴ ┬ ┼
+	docsText := []byte(`# Operations
 
 Arithmetic    ->  + - * / % ^
 
@@ -47,9 +33,16 @@ Logic         ->  and  or  xor  not
 Math          ->  sqrt  fact  floor  ceil  abs  max  min  sim  exp  log  sin  cos  tan
               ->  √x    x!    ⌊x⌋     ⌈x⌉   |x|   ↑    ↓    ±  
 
-Stack         -> swap  drop  dup  dup2  rot  over
+Stack         -> swap  drop  dup  dup2  rot  over size
 
 Control Flow  -> if{}{}  for{}`)
 
-	ioutil.WriteFile(folder+"/chars.md", docsText, 0644)
+	ioutil.WriteFile(folder+"/ops.md", docsText, 0644)
+}
+
+// Create the function log file
+func funcLogFile(folder string) {
+	funcText := []byte("# Functions\n")
+
+	ioutil.WriteFile(folder+"/funcLog.md", funcText, 0644)
 }

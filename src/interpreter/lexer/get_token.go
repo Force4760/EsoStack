@@ -63,7 +63,7 @@ func (le *Lexer) GetToken(index int) (tok.Token, error) {
 		token = tok.MAX
 	case "↓", "min":
 		token = tok.MIN
-	case "±", "sim":
+	case "-x", "sim":
 		token = tok.SIM
 	case "⌊x⌋", "floor":
 		token = tok.FLOOR
@@ -80,10 +80,14 @@ func (le *Lexer) GetToken(index int) (tok.Token, error) {
 		token = tok.DUP
 	case "dup2":
 		token = tok.DUP2
+	case "duplicate":
+		token = tok.DUPLICATE
 	case "rot":
 		token = tok.ROT
 	case "over":
 		token = tok.OVER
+	case "size":
+		token = tok.SIZE
 
 	case "true", "false":
 		token = tok.BOOL
@@ -102,6 +106,8 @@ func (le *Lexer) GetToken(index int) (tok.Token, error) {
 		return tok.NewToken(tok.FLOAT, NEPER), nil
 	case "π", "pi":
 		return tok.NewToken(tok.FLOAT, PI), nil
+	case "τ", "2π", "tau":
+		return tok.NewToken(tok.FLOAT, TAU), nil
 	case "ϕ", "phi":
 		return tok.NewToken(tok.FLOAT, PHI), nil
 

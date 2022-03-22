@@ -49,9 +49,11 @@ const (
 	SWAP
 	DUP
 	DUP2
+	DUPLICATE
 	DROP
 	OVER
 	ROT
+	SIZE
 
 	// KeyWords & DELIMITERS
 	IF

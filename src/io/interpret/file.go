@@ -35,3 +35,23 @@ func File(path string) {
 
 	fmt.Println(stk)
 }
+
+func RunFile(path string, stk *stack.Stack) error {
+	// Read entire file content, giving us little control but
+	// making it very simple. No need to close the file.
+	content, err := ioutil.ReadFile(path)
+	if err != nil {
+		return err
+	}
+
+	// Convert []byte to string
+	line := string(content)
+
+	// Interpret the file contents
+	err = Interpret(line, stk)
+	if err != nil {
+		return err
+	}
+
+	return nil
+}

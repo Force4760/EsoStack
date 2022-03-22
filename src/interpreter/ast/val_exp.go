@@ -99,12 +99,18 @@ func (v *ValExpression) Eval(s *stack.Stack) error {
 		err = s.Dup()
 	case tokens.DUP2:
 		err = s.Dup2()
+	case tokens.DUPLICATE:
+		err = nil
+		s.Duplicate()
 	case tokens.DROP:
 		err = s.Drop()
 	case tokens.OVER:
 		err = s.Over()
 	case tokens.ROT:
 		err = s.Rot()
+	case tokens.SIZE:
+		err = nil
+		s.Size()
 
 	case tokens.BOOL:
 		// push boolean

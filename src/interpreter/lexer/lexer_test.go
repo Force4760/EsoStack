@@ -109,7 +109,7 @@ func TestLexer(t *testing.T) {
 		assert.Equal(t, got, want)
 	})
 	t.Run("Stack Functions", func(t *testing.T) {
-		input := "swap drop dup dup2 rot over if for {}"
+		input := "swap drop dup dup2 rot over if for {} size"
 		got, _ := New(input)
 
 		got.Tokenize()
@@ -117,7 +117,7 @@ func TestLexer(t *testing.T) {
 		want := &Lexer{
 			input:  input,
 			length: len(input),
-			chrs:   []string{"swap", "drop", "dup", "dup2", "rot", "over", "if", "for", "{", "}"},
+			chrs:   []string{"swap", "drop", "dup", "dup2", "rot", "over", "if", "for", "{", "}", "size"},
 			Tokens: []tokens.Token{
 				{Type: tokens.SWAP, Literal: "swap"},
 				{Type: tokens.DROP, Literal: "drop"},
@@ -129,6 +129,7 @@ func TestLexer(t *testing.T) {
 				{Type: tokens.FOR, Literal: "for"},
 				{Type: tokens.LBRACE, Literal: "{"},
 				{Type: tokens.RBRACE, Literal: "}"},
+				{Type: tokens.SIZE, Literal: "size"},
 			},
 		}
 

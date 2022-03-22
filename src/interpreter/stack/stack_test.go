@@ -289,3 +289,24 @@ func TestString(t *testing.T) {
 		assert.Equal(t, got, want)
 	})
 }
+
+func TestSize(t *testing.T) {
+	t.Run("Empty", func(t *testing.T) {
+		stk := NewStack([]float64{})
+
+		stk.Size()
+
+		want := NewStack([]float64{0})
+
+		assert.Equal(t, stk, want)
+	})
+	t.Run("Non-Empty", func(t *testing.T) {
+		stk := NewStack([]float64{1, 2, 3, 4, 5})
+
+		stk.Size()
+
+		want := NewStack([]float64{1, 2, 3, 4, 5, 5})
+
+		assert.Equal(t, stk, want)
+	})
+}

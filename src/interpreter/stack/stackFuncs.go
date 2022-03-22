@@ -191,3 +191,19 @@ func (s *Stack) Empty() {
 	s.length = 0
 	s.values = []float64{}
 }
+
+// Push the number of elems in the stack
+func (s *Stack) Size() {
+	s.Push(
+		float64(s.length),
+	)
+}
+
+// Duplicate all the elements in the stack
+func (s *Stack) Duplicate() {
+	vals := s.values
+
+	for _, i := range vals {
+		s.Push(i)
+	}
+}
