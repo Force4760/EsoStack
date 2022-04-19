@@ -37,6 +37,8 @@ func Init() {
 
 	funcLogFile(project)
 
+	mainFile(project)
+
 	fmt.Println(
 		colorize.Colorize("Project Created", colorize.GREEN),
 	)

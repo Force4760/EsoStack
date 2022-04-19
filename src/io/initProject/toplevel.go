@@ -46,3 +46,9 @@ func funcLogFile(folder string) {
 
 	ioutil.WriteFile(folder+"/funcLog.md", funcText, 0644)
 }
+
+func mainFile(folder string) {
+	mainText := []byte{}
+
+	ioutil.WriteFile(folder+"/main", mainText, 0644)
+}

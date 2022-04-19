@@ -1,6 +1,6 @@
 package cmd
 
-import (
+/*import (
 	"github.com/force4760/esostack/src/app"
 	"github.com/spf13/cobra"
 )
@@ -18,3 +18,4 @@ var appCmd = &cobra.Command{
 func init() {
 	rootCmd.AddCommand(appCmd)
 }
+*/

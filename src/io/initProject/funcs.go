@@ -23,10 +23,16 @@ func FuncFile() {
 
 	desc, _ := widgets.Input("Function Description: ")
 
-	docsText := []byte(fmt.Sprintf("( Description: %s )", desc))
+	docsText := []byte(fmt.Sprintf(`( Description: %s 
+	Args:
+		(arg-1-name): <arg-1-desc>
+	
+	Vals:
+		(val-1-name): <val-1-desc>
+)`, desc))
 
 	err := ioutil.WriteFile(
-		fmt.Sprintf("./funcs/%s.es", name),
+		fmt.Sprintf("./funcs/%s.stk", name),
 		docsText,
 		0644,
 	)

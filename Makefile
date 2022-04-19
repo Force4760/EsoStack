@@ -27,7 +27,6 @@ build:
 	@echo "building ${BIN_NAME} ${VERSION}"
 	@echo "GOPATH=${GOPATH}"
 	go build -tags "cli" -ldflags "-X github.com/force4760/esostack/version.GitCommit=${GIT_COMMIT}${GIT_DIRTY} -X github.com/force4760/esostack/version.BuildDate=${BUILD_DATE}" -o bin/${BIN_NAME}
-	go build -tags "app" -ldflags "-X github.com/force4760/esostack/version.GitCommit=${GIT_COMMIT}${GIT_DIRTY} -X github.com/force4760/esostack/version.BuildDate=${BUILD_DATE}" -o bin/${BIN_NAME}App
 
 get-deps:
 	dep ensure

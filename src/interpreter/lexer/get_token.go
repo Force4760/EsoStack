@@ -86,7 +86,7 @@ func (le *Lexer) GetToken(index int) (tok.Token, error) {
 		token = tok.ROT
 	case "over":
 		token = tok.OVER
-	case "size":
+	case "#", "size":
 		token = tok.SIZE
 
 	case "true", "false":

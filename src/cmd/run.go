@@ -8,11 +8,11 @@ import (
 // runCmd represents the run command
 var runCmd = &cobra.Command{
 	Use:   "run",
-	Short: "Run a single file",
-	Long:  "Run a single file (provided as an argument) and print the stack at the end",
-	Args:  cobra.ExactArgs(1),
+	Short: "Run the main file",
+	Long:  "Run the main file and print the stack at the end",
+	Args:  cobra.NoArgs,
 	Run: func(cmd *cobra.Command, args []string) {
-		interpret.File(args[0])
+		interpret.RunMain("./main")
 	},
 }
 
